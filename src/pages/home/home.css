@@ -1,0 +1,118 @@
+@import '../../styles/global.css';
+
+.header-perfil-paciente {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 24px 24px 0 0;
+  position: relative;
+  box-shadow: var(--soft-shadow);
+}
+
+.avatar-iniciales {
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 auto 15px auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.grid-datos-clinicos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #ffffff;
+  border-radius: 0 0 24px 24px;
+  box-shadow: var(--soft-shadow);
+  border: none;
+  margin-bottom: 40px;
+}
+
+.bloque-dato {
+  padding: 25px;
+  border-bottom: 1px solid #f8fafc;
+  border-right: 1px solid #f8fafc;
+}
+
+.bloque-dato:nth-child(3n) { border-right: none; }
+
+.bloque-dato label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #a4b0be;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.bloque-dato p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.badge-diagnostico {
+  background: #ffe4e6;
+  color: #f43f5e;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.panel-telemetria-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.tarjeta-telemetria {
+  background: #ffffff;
+  border: none;
+  box-shadow: var(--soft-shadow);
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+}
+
+.tabla-perfil {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: none;
+  box-shadow: var(--soft-shadow);
+  margin-bottom: 30px;
+}
+
+.tabla-perfil th {
+  background: #ffffff;
+  padding: 18px 20px;
+  text-align: left;
+  font-size: 12px;
+  color: #a4b0be;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tabla-perfil td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #f8fafc;
+  font-size: 14px;
+  color: #2d3436;
+  font-weight: 500;
+}

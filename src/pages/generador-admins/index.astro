@@ -1,0 +1,45 @@
+---
+import './generador-admins.css';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hydra | Generador de Admins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <a href="/Login/" class="volver-btn"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+    <h2 style="text-align:center;margin-bottom:10px;"><i class="fa-solid fa-user-shield"></i> Generador de Admins</h2>
+    <p style="text-align:center;max-width:500px;font-size:13px;color:#94a3b8;margin-bottom:25px;line-height:1.5;">Herramienta de desarrollo. Los datos se encriptan antes de enviarse a la BD.</p>
+    <div class="panel-container">
+      <div class="card">
+        <h2><i class="fa-solid fa-id-card"></i> Nuevo Admin</h2>
+        <div class="form-grid">
+          <div><label>RUT <span style="color:#ef4444;">*</span></label><input type="text" id="dev-rut" placeholder="12.345.678-9" /><p class="error-msg" id="error-rut">⚠️ RUT inválido.</p></div>
+          <div><label>Nombre <span style="color:#ef4444;">*</span></label><input type="text" id="dev-nombre" placeholder="Nombre" /></div>
+          <div><label>Apellido Paterno <span style="color:#ef4444;">*</span></label><input type="text" id="dev-appat" placeholder="Apellido Paterno" /></div>
+          <div><label>Apellido Materno</label><input type="text" id="dev-apmat" placeholder="Apellido Materno" /></div>
+          <div class="full-width"><label>Correo <span style="color:#ef4444;">*</span></label><input type="email" id="dev-correo" placeholder="admin@hospital.cl" /><p class="error-msg" id="error-correo">⚠️ Correo inválido.</p></div>
+          <div class="full-width"><label>Contraseña <span style="color:#ef4444;">*</span></label><input type="text" id="dev-pass" placeholder="Contraseña segura..." /></div>
+        </div>
+        <button class="btn-primary" id="btn-generar" onclick="window.crearAdminDirecto()"><i class="fa-solid fa-hard-drive"></i> Crear Admin</button>
+      </div>
+      <div class="success-card" id="caja-credenciales">
+        <h3><i class="fa-solid fa-circle-check"></i> Admin Creado</h3>
+        <p class="success-subtitle">Guarda estas credenciales. No podrás ver la contraseña nuevamente.</p>
+        <div class="data-row"><strong>Correo:</strong><span id="res-correo">---</span></div>
+        <div class="data-row"><strong>Contraseña:</strong><span id="res-pass">---</span></div>
+        <button class="btn-copiar" id="btn-copiar" onclick="window.copiarCredenciales()"><i class="fa-regular fa-copy"></i> Copiar</button>
+      </div>
+    </div>
+
+    <script>
+      import { initGeneradorAdmins } from "./_generador-admins";
+      initGeneradorAdmins();
+    </script>
+  </body>
+</html>
