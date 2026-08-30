@@ -1,4 +1,4 @@
-const AUTH_URL = 'https://api.hydra.cl/api/auth';
+const AUTH_URL = 'https://hydra-arm-security.onrender.com/api/auth';
 
 export interface AuthTokens {
   accessToken: string;
@@ -105,23 +105,25 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
   return res.json();
 }
 
+const CRUD_URL = 'https://hydra-crud.onrender.com/api';
+
 export async function getPacientes(): Promise<any[]> {
-  return request<any[]>('https://api.hydra.cl/api/pacientes');
+  return request<any[]>(`${CRUD_URL}/pacientes`);
 }
 
 export async function postPaciente(data: any): Promise<any> {
-  return request<any>('https://api.hydra.cl/api/pacientes', {
+  return request<any>(`${CRUD_URL}/pacientes`, {
     method: 'POST',
     body: JSON.stringify(data)
   });
 }
 
 export async function getEmpleados(): Promise<any[]> {
-  return request<any[]>('https://api.hydra.cl/api/empleados');
+  return request<any[]>(`${CRUD_URL}/empleados`);
 }
 
 export async function postEmpleado(data: any): Promise<any> {
-  return request<any>('https://api.hydra.cl/api/empleados', {
+  return request<any>(`${CRUD_URL}/empleados`, {
     method: 'POST',
     body: JSON.stringify(data)
   });

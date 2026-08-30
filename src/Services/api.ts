@@ -25,7 +25,7 @@ export interface Empleado {
   sucursalIdSucursal?: number;
 }
 
-const BASE_URL = 'https://api.hydra.cl/api';
+const BASE_URL = 'https://hydra-crud.onrender.com/api';
 
 async function request<T>(url: string, options?: RequestInit): Promise<T> {
   const res = await fetch(url, {

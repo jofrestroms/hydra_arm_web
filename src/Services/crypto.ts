@@ -1,6 +1,6 @@
 import { getAuthHeaders } from './auth';
 
-const SECURITY_URL = 'https://api.hydra.cl/api/user/cripto';
+const SECURITY_URL = 'https://hydra-arm-security.onrender.com/api/user/cripto';
 
 export async function desencriptarDato(hash: string | null | undefined): Promise<string | null> {
   if (!hash || hash === 'null' || hash.length < 15) return hash || 'Sin registro';
