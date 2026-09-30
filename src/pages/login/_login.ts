@@ -35,10 +35,4 @@ export function initLogin(): void {
       btnLogin.disabled = false;
     }
   };
-
-  document.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.shiftKey && (event.key === 'D' || event.key === 'd')) {
-      window.location.href = '/generador-admins/';
-    }
-  });
 }

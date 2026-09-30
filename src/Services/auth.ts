@@ -33,6 +33,18 @@ export function getAuthHeaders(): Record<string, string> {
   return token ? { 'Authorization': `Bearer ${token}` } : {};
 }
 
+/** Rol de la sesion actual, tal como lo entrego /login. Null si no hay sesion. */
+export function getCurrentRole(): string | null {
+  try {
+    const raw = localStorage.getItem('hydraUser');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return typeof parsed?.role === 'string' ? parsed.role : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function login(
   email: string,
   password: string,

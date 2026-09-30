@@ -1,5 +1,15 @@
+import { getAuthHeaders, getCurrentRole } from '../../services/auth';
+
 export function initGeneradorAdmins(): void {
-  const credencialesGlobales = btoa('user:dc20f0e4-b1bc-4969-a01c-cbb8282c805f');
+  // Solo un ADMIN autenticado puede crear cuentas. Sin sesion o con otro rol
+  // la pantalla queda inutilizable y la API lo vuelve a validar.
+  const rolActual = getCurrentRole();
+  if (rolActual !== 'ADMIN') {
+    document.addEventListener('DOMContentLoaded', () => {
+      window.location.href = '/login/';
+    });
+    return;
+  }
 
   function validarRutChileno(rut: string): boolean {
     let v = rut.replace(/\./g, '').replace(/-/g, '');
@@ -54,7 +64,7 @@ export function initGeneradorAdmins(): void {
       try {
         const res = await fetch('https://hydra-arm-crud.onrender.com/api/empleados', {
           method: 'POST',
-          headers: { Authorization: `Basic ${credencialesGlobales}`, 'Content-Type': 'application/json' },
+          headers: { ...getAuthHeaders(), 'Content-Type': 'application/json' },
           body: JSON.stringify({ run: rutE, nombre: nom, apellidoPaterno: app, apellidoMaterno: am, correo: corE, password: pasE, rolIdRol: 1, sucursalIdSucursal: 1 }),
         });
         if (res.ok || res.status === 201) {

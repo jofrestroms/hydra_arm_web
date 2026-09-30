@@ -1,4 +1,5 @@
 import { desencriptarDato, getUsuarioSesion } from '../../services/crypto';
+import { getAuthHeaders } from '../../services/auth';
 
 export function initHome(): void {
   let pacienteActualData: { nombreCompleto: string; rut: string } | null = null;
@@ -28,11 +29,10 @@ export function initHome(): void {
 
   async function cargarPacientes(): Promise<void> {
     const urlAPI = 'https://hydra-arm-crud.onrender.com/api/pacientes';
-    const credenciales = btoa('user:dc20f0e4-b1bc-4969-a01c-cbb8282c805f');
 
     try {
       const tbody = document.getElementById('cuerpo-tabla-pacientes') as HTMLTableSectionElement;
-      const res = await fetch(urlAPI, { headers: { Authorization: `Basic ${credenciales}` } });
+      const res = await fetch(urlAPI, { headers: getAuthHeaders() });
 
       if (res.ok) {
         const cifrados: any[] = await res.json();
